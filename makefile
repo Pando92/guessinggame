@@ -3,8 +3,8 @@ README.md:
 	echo "" >>README.md
 	date >>README.md	
 	echo "" >>README.md
-	< guessinggame.sh wc -l
-	echo "`<guessinggame.sh wc -l` lines in guessinggame.sh" >> README.md
+	cat guessinggame.sh |tr -d " \t"|grep . |grep -v ^#|wc -l
+	echo `cat guessinggame.sh |tr -d " \t"|grep . |grep -v ^#|wc -l` lines of code in guessinggame.sh >> README.md
 	
 clean:
 	rm README.md

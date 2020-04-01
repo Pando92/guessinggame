@@ -1,5 +1,5 @@
 # Guessing game Peer-graded Assignment
 
-mar 31 mar 2020, 17.25.10, CEST
+mer  1 apr 2020, 11.21.03, CEST
 
-21 lines in guessinggame.sh
+29 lines of code in guessinggame.sh

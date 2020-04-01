@@ -1,21 +1,31 @@
-function guessingloop {
-	read number
-	while [[ $number -ne $filesnumb ]]
+function formattest {
+	while ! [[ $number =~ ^[0-9]+$ ]]
 	do
-		if [[ $number -gt $filesnumb ]]
-		then
-			echo "Your guess is too high!"
-		else
-			echo "Your guess is too low!"
-		fi
-		echo "Try again! You will be luckier!"
+		echo "Invalid format. Insert an integer (example "3")"
 		read number
 	done
-	echo "Congratulations! You have WON!!"
+}
+
+function magnitudetest {
+	if [[ $number -gt $filesnumb ]]
+	then
+		echo "Your guess is too high!"
+	else
+		echo "Your guess is too low!"
+	fi
 }
 
 echo "Hello! Welcome to the guessing game!
-Let's try to guess How many files are contained in the current folder.
+Let's try to guess how many files are contained in the current folder.
 Please insert a number:"
-filesnumb=$(ls -1 | wc -l) 
-guessingloop
+filesnumb=$(ls -A | wc -l) 
+read number
+formattest
+while [[ $number -ne $filesnumb ]]
+do
+	magnitudetest
+echo "Try again! You will be luckier!"
+read number
+formattest
+done
+echo "Congratulations! You have WON!!"
